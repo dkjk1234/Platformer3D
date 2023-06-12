@@ -11,11 +11,13 @@ public class SpringRotator : MonoBehaviour
     void Update()
     {
         if(rotateXYZNumState == 0)
-        transform.Rotate( rotationSpeed * Time.deltaTime * (isReverse ? 1 : -1),0,1, 0); // Y 축을 중심으로 회전합니다.
+        transform.Rotate( rotationSpeed * Time.deltaTime * (isReverse ? 1 : -1),0,1, 0); // X 축을 중심으로 회전합니다.
         if(rotateXYZNumState == 1)
             transform.Rotate( 0,rotationSpeed * Time.deltaTime * (isReverse ? 1 : -1), 0); // Y 축을 중심으로 회전합니다.
         if(rotateXYZNumState == 2)
-            transform.Rotate( 0,0, rotationSpeed * Time.deltaTime * (isReverse ? 1 : -1)); // Y 축을 중심으로 회전합니다.
+            transform.Rotate( 0,0, rotationSpeed * Time.deltaTime * (isReverse ? 1 : -1)); // Z 축을 중심으로 회전합니다.
+
+
     }
 }
 
