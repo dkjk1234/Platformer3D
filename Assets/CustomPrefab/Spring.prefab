@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 880804222158597388}
   m_Layer: 0
   m_Name: Spring
-  m_TagString: Untagged
+  m_TagString: RotatingPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,4 +120,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
-  rotateAxisNumState: 2
+  rotateXYZNumState: 0
+  isReverse: 0
