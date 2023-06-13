@@ -6,12 +6,17 @@ public class BtnManager : MonoBehaviour
 {
     int SceneNum;
 
-    public void Title_Start()
+    private void Start()
     {
-        SceneNum = 1;
-        StartCoroutine(Scene_Move());
-
+        StartCoroutine(Start_Scene_Move());
     }
+    //public void Title_Start()
+    //{
+    //    Debug.Log("½ºÅ¸Æ®");
+    //    SceneNum = 1;
+    //    StartCoroutine(Scene_Move());
+
+    //}
     public void Title_HowtoPlay()
     {
         SceneNum = 2;
@@ -24,6 +29,12 @@ public class BtnManager : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif 
         Application.Quit();
+    }
+
+    IEnumerator Start_Scene_Move()
+    {
+        yield return new WaitForSeconds(2f);
+        LoadingScene.LoadScene("InGame");
     }
 
     IEnumerator Scene_Move()

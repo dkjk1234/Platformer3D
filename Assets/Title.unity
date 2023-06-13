@@ -487,11 +487,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 100197145}
   - {fileID: 2005671310}
   - {fileID: 1599953723}
   - {fileID: 478927488}
   - {fileID: 1070154496}
+  - {fileID: 100197145}
   m_Father: {fileID: 1915940202}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
