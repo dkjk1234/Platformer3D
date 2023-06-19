@@ -1,21 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField] GameObject SettingPopup;
 
+    [Header("팝업창 관련 오브젝트")]
+    [SerializeField] GameObject SettingPopup;
     [SerializeField] GameObject Sound_On;
     [SerializeField] GameObject Sound_Off;
     [SerializeField] AudioSource BG_audio;
+
+    public Image player_HP;
     private void Awake()
     {
         instance = this;
     }
-
+    void Start()
+    {
+        BG_audio = GameObject.Find("bgn").GetComponent<AudioSource>();
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
