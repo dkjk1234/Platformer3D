@@ -11,6 +11,7 @@ TagManager:
   - Animal
   - Water
   - Portal
+  - oo
   layers:
   - Default
   - TransparentFX
