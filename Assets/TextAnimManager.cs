@@ -12,6 +12,7 @@ namespace Febucci.UI.Examples
         public Image human;
         public float fadeInTime = 1f;
         private AudioSource chatSound;
+        public bool isQuest = false;
         private List<string> dialogueList = new List<string>()
         {
             "[나무꾼] 안녕, 꼬마야. 무슨 일로 이 숲을 돌아다니고 있니?",
@@ -132,7 +133,6 @@ namespace Febucci.UI.Examples
             }
             img.color = new Color(1f, 1f, 1f, 0f);
         }
-
     }
 }
 
