@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -6,7 +7,8 @@ public class VideoPlayerController : MonoBehaviour
 {
     public RawImage rawImage;
     public RenderTexture renderTexture;
-    public string videoFileName = "W1.mp4";
+    public string videoFileName;
+    public string nextSceneName;
 
     private VideoPlayer videoPlayer;
 
@@ -48,5 +50,7 @@ public class VideoPlayerController : MonoBehaviour
     {
         vp.playbackSpeed = vp.playbackSpeed / 10.0F;
         Debug.Log("End reached!");
+        if(nextSceneName != null ) 
+        SceneManager.LoadScene(nextSceneName);
     }
 }

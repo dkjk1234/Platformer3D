@@ -12,10 +12,12 @@ namespace Febucci.UI.Examples
         public Image human;
         public float fadeInTime = 1f;
         private AudioSource chatSound;
+        public GameObject prevGround;
+        public GameObject nextGround;
         public bool isQuest = false;
         private List<string> dialogueList = new List<string>()
         {
-            "[나무꾼] 안녕, 꼬마야. 무슨 일로 이 숲을 돌아다니고 있니?",
+            "[나무꾼] 안녕, 꼬마야. 무슨 일로 이 숲을 돌아다니고 있니?", //0
             "[늑대] 가족들과 함께 길을 가던 중 절벽에서 떨어져 가족들을 찾으러 가는 길이었어요.",
             "[나무꾼] 절벽에서 떨어졌다고?!?!?",
             "[나무꾼] 어디 다친 곳은 없었니?",
@@ -27,7 +29,10 @@ namespace Febucci.UI.Examples
             "[늑대] 그건 정말 곤란하시겠어요...",
             "[늑대] 제가 도끼를 찾는 걸 도와드릴게요!",
             "[나무꾼] 고맙구나. 나는 이 근방에서 계속 찾아볼 테니 너는 절벽 쪽으로 가서 찾아보도록 해.",
-            "[늑대] 알겠어요!",
+            "[늑대] 알겠어요!", //12
+
+            "[나무꾼] 아직 도끼를 못 찾은거 같은데???", //13
+
             "[늑대] 여기 도끼를 찾았어요!",
             "[나무꾼] 아이고, 고맙다 꼬마야. 이 은혜를 어떻게 갚아야 할지...",
             "[늑대] 아니에요, 다같이 돕고 돕는 세상인데요. 뭘~",
@@ -49,7 +54,13 @@ namespace Febucci.UI.Examples
             textToSet = tanimPlayer.textAnimator.tmproText.text;
             
         }
+        public void QuestSuccess()
+        {
+            Debug.Log("QuestSuccess");
+            isQuest = true;
+            dialogueIndex++;
 
+        }
         private void Start()
         {
             tanimPlayer.ShowText(dialogueList[0]);
@@ -76,20 +87,41 @@ namespace Febucci.UI.Examples
         }
         private void NextDialogue()
         {
-            dialogueIndex++;
-            tanimPlayer.StopShowingText();
             
-            if (dialogueIndex >= dialogueList.Count)
+            tanimPlayer.StopShowingText();
+           if(dialogueIndex == 10) prevGround.SetActive(true);
+            if (dialogueIndex == 13) prevGround.SetActive(true);
+            if (dialogueIndex + 1 >= dialogueList.Count)
             {
                 // 대화 종료
                 EndDialogue();
             }
             else
             {
+                if (dialogueIndex < 13)
+                {
+                    dialogueIndex++;
+                   
+                }
+                else
+                {
+                    if (isQuest)
+                    {
+                        dialogueIndex++;
+                    }
+                }
+                
                 DisplayDialogue();
             }
         }
         
+        private void OnEnable()
+        {
+            tanimPlayer.StopShowingText();
+            tanimPlayer.ShowText(dialogueList[dialogueIndex]);
+            // 활성화될 때 실행되는 코드
+        }
+
         private void DisplayDialogue()
         {
             string dialogue = dialogueList[dialogueIndex];
@@ -111,8 +143,10 @@ namespace Febucci.UI.Examples
 
         private void EndDialogue()
         {
-            //Debug.Log("대화 종료");
+          nextGround.SetActive(true);
+          gameObject.SetActive(false);
         }
+        
         
         IEnumerator FadeInImage(Image img)
         {

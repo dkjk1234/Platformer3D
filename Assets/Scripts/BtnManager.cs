@@ -8,15 +8,15 @@ public class BtnManager : MonoBehaviour
 
     private void Start()
     {
-        //   StartCoroutine(Start_Scene_Move());
+         StartCoroutine(Start_Scene_Move());
     }
-    //public void Title_Start()
-    //{
-    //    Debug.Log("스타트");
-    //    SceneNum = 1;
-    //    StartCoroutine(Scene_Move());
+    public void Title_Start()
+   {
+        Debug.Log("스타트");
+       SceneNum = 1;
+        StartCoroutine(Scene_Move());
 
-    //}
+    }
     public void Title_HowtoPlay()
     {
         SceneNum = 2;
@@ -64,7 +64,7 @@ public class BtnManager : MonoBehaviour
     IEnumerator Start_Scene_Move()
     {
         yield return new WaitForSeconds(7f);
-        LoadingScene.LoadScene("InGame");
+        LoadingScene.LoadScene("FirstVideo");
     }
 
     IEnumerator Scene_Move()

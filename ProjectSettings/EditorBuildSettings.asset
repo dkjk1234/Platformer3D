@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/InGame.unity
     guid: 7aa07b744290495478ca0bf8547f0016
   - enabled: 1
-    path: Assets/HowtoPlay.unity
-    guid: 73f1c7ec48617e343afd37aec104c9fe
-  - enabled: 1
     path: Assets/LoadingScene.unity
     guid: 157dc500514f5cd4780c26593ba9279e
+  - enabled: 1
+    path: Assets/FirstVideo.unity
+    guid: 58cb33b8e2bdb9b4f89336e6ba534d07
+  - enabled: 1
+    path: Assets/SecondVideo.unity
+    guid: d3a3f4704722b3a45bb3aa711448d17f
   m_configObjects: {}

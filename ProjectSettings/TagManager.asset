@@ -12,6 +12,7 @@ TagManager:
   - Water
   - Portal
   - oo
+  - QuestItem
   layers:
   - Default
   - TransparentFX
